@@ -1,15 +1,11 @@
-# gulp-rev [![Build Status](https://travis-ci.org/sindresorhus/gulp-rev.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-rev) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo) [![Gitter](https://badges.gitter.im/join_chat.svg)](https://gitter.im/sindresorhus/gulp-rev)
+# gulp-rev
 
 > Static asset revisioning by appending content hash to filenames
-> `unicorn.css` → `unicorn-d41d8cd98f.css`
+> `unicorn.css` → `{32 char hash}-unicorn.css`
 
-**This project is feature complete.**
+**Forked and modified by Home Bay** (because the original project has been designated by the auther as "feature complete").
 
 Make sure to set the files to [never expire](http://developer.yahoo.com/performance/rules.html#expires) for this to have an effect.
-
----
-
-<p align="center"><b>🔥 Want to strengthen your core JavaScript skills and master ES6?</b><br>I would personally recommend this awesome <a href="https://ES6.io/friend/AWESOME">ES6 course</a> by Wes Bos.<br>Also check out his <a href="https://LearnNode.com/friend/AWESOME">Node.js</a>, <a href="https://ReactForBeginners.com/friend/AWESOME">React</a>, <a href="https://SublimeTextBook.com/friend/AWESOME">Sublime</a> courses.</p>
 
 ---
 
@@ -17,7 +13,7 @@ Make sure to set the files to [never expire](http://developer.yahoo.com/performa
 ## Install
 
 ```
-$ npm install --save-dev gulp-rev
+$ npm i -D https://github.com/HomeBay/gulp-rev.git
 ```
 
 

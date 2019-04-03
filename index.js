@@ -2,12 +2,35 @@
 const path = require('path');
 const through = require('through2');
 const vinylFile = require('vinyl-file');
-const revHash = require('rev-hash');
-const revPath = require('rev-path');
+//const revHash = require('rev-hash');
+//const revPath = require('rev-path');
 const sortKeys = require('sort-keys');
 const modifyFilename = require('modify-filename');
 const Vinyl = require('vinyl');
 const PluginError = require('plugin-error');
+
+const crypto = require('crypto');
+
+// Stolen from the `rev-hash` package. 
+// Modified to generate a 32 character hash (instead of 10).
+function revHash(input) {
+	if (typeof input !== 'string' && !Buffer.isBuffer(input)) {
+		throw new TypeError('Expected a Buffer or string');
+	}
+	return crypto.createHash('md5').update(input).digest('hex').slice(0, 32);
+}
+
+// Stolen from the `rev-path` package.
+// Modified to prefix the hash to a filename (versus appending it).
+function revPath(pth, hash) {
+	if (!(pth && hash)) {
+		throw new Error('`path` and `hash` required');
+	}
+	return modifyFilename(pth, function (filename, ext) { 
+		return `${hash}-${filename}${ext}`; 
+	});
+};
+
 
 function relPath(base, filePath) {
 	filePath = filePath.replace(/\\/g, '/');
